@@ -12,6 +12,18 @@ The pages linked to the above sample are as follows.
 - [Google Maps ライブラリを導入 Japanese](https://doc.haramizu.com/nextjs/googlemaps/)
 - [Google Maps Library Englsih](https://doc.haramizu.com/en/nextjs/googlemaps/)
 
+## Google Tag Manager
+
+Here we introduce a project where Google Tag Manager has been installed.
+
+- [Next.js App Router](https://github.com/haramizu/Next.js-sample/tree/main/examples/google-tag-manager-app)
+- [Next.js Pages Router](https://github.com/haramizu/Next.js-sample/tree/main/examples/google-tag-manager-pages)
+
+The pages linked to the above sample are as follows.
+
+- [GTM ( Google Tag Manager ) の追加 Japanese](https://doc.haramizu.com/nextjs/gtm/)
+- [GTM (Google Tag Manager) Englsih](https://doc.haramizu.com/en/nextjs/gtm/)
+
 ## v0 by Vercel
 
 This page introduces samples of v0, a component generation service that uses AI.
