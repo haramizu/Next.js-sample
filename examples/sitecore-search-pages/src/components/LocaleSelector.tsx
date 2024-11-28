@@ -1,6 +1,6 @@
 import { useEffect, useContext } from "react";
-import languages, { Language } from "@/lib/locales";
-import { LanguageContext, ILanguageContext } from "@/lib/languageContext";
+import languages, { Language } from "@/data/locales";
+import { LanguageContext, ILanguageContext } from "@/contexts/languageContext";
 
 export default function LocaleSelector() {
     const { language, setLanguage } =
@@ -13,7 +13,7 @@ export default function LocaleSelector() {
         if (savedLanguage && languages[savedLanguage]) {
             setLanguage(savedLanguage);
         }
-    }, []);
+    }, [setLanguage]);
 
     const handleLanguageChange = (
         event: React.ChangeEvent<HTMLSelectElement>
