@@ -1,6 +1,7 @@
 import LocaleSelector from "@/components/LocaleSelector";
 import PreviewSearch from "@/widgets/PreviewSearchBasic";
 import Image from "next/image";
+import DarkModeToggle from "./mode";
 
 export default function Header() {
   return (
@@ -19,7 +20,8 @@ export default function Header() {
             <PreviewSearch rfkId="rfkid_6"></PreviewSearch>
           </div>
         </div>
-        <div className="w-6/12 md:w-3/12 flex justify-end">
+        <div className="w-6/12 md:w-3/12 flex justify-end items-center">
+          <DarkModeToggle />
           <LocaleSelector />
         </div>
       </header>

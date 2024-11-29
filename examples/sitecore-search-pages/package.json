@@ -13,6 +13,7 @@
     "@sitecore-search/react": "^2.6.3",
     "@sitecore-search/ui": "^2.6.3",
     "next": "14.2.18",
+    "next-themes": "^0.4.3",
     "react": "^18",
     "react-dom": "^18"
   },
