@@ -49,7 +49,7 @@ export const PreviewSearchBasicComponent = ({ defaultItemsPerPage = 6 }) => {
   return (
     <PreviewSearch.Root>
       <PreviewSearch.Input
-        className="w-[800px] box-border py-2 px-2 focus:outline-solid focus:outline-1 focus:outline-gray-500 border-2 bg-gray-100 dark:bg-gray-700 dark:text-gray-100"
+        className="w-full box-border py-2 px-2 focus:outline-solid focus:outline-1 focus:outline-gray-500 border-2 bg-gray-100 dark:bg-gray-700 dark:text-gray-100"
         onChange={keyphraseHandler}
         autoComplete="off"
         placeholder="Type to search..."
