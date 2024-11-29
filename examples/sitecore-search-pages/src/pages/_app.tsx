@@ -4,15 +4,10 @@ import type { AppProps } from "next/app";
 import { LanguageContext } from "@/contexts/languageContext";
 import useStorage from "@/lib/useLocalStorage";
 import locales, { Language } from "@/data/locales";
-import LocaleSelector from "@/components/LocaleSelector";
 import { PageController, WidgetsProvider } from "@sitecore-search/react";
-import {
-  SEARCH_ENV,
-  SEARCH_CUSTOMER_KEY,
-  SEARCH_API_KEY,
-} from "@/data/search";
+import { SEARCH_ENV, SEARCH_CUSTOMER_KEY, SEARCH_API_KEY } from "@/data/search";
 import type { Environment } from "@sitecore-search/data";
-
+import Header from "@/components/Header";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [storageLanguage, setStorageLanguage] = useStorage(
@@ -36,10 +31,9 @@ export default function App({ Component, pageProps }: AppProps) {
         customerKey={SEARCH_CUSTOMER_KEY}
         apiKey={SEARCH_API_KEY}
       >
-        <LocaleSelector />
+        <Header />
         <Component {...pageProps} />
       </WidgetsProvider>
-
     </LanguageContext.Provider>
   );
 }
