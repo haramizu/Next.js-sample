@@ -10,7 +10,56 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1 className="text-3xl m-4">Hello Sitecore Search</h1>
+        <h1 className="text-3xl m-4 font-bold">Hello Sitecore Search</h1>
+        <div className="m-6">
+          <h2 className="text-2xl mb-2">About this site</h2>
+          <p>
+            This site uses the Sitecore Search SDK and runs on Next.js. For more
+            information on how to build it, please refer to the following page.
+          </p>
+          <ul className="my-4">
+            <li className="list-disc list-inside">
+              <a href="https://doc.haramizu.com/en/nextjs/sitecore-search">
+                Next.js - Sitecore Search
+              </a>
+            </li>
+          </ul>
+          <p>
+            The source code for this site is available on GitHub. If you want to
+            refer to the source code, please check the following link.
+          </p>
+          <ul className="mt-4 mb-8">
+            <li className="list-disc list-inside">
+              <a href="https://github.com/haramizu/Next.js-sample/tree/main/examples/sitecore-search-pages">
+                GitHub - haramizu / Next.js-sample - Sitecore Search
+              </a>
+            </li>
+          </ul>
+          <hr />
+          <h2 className="text-2xl mt-4 mb-2">このサイトについて</h2>
+          <p>
+            このサイトは Sitecore Search の SDK を利用して、Next.js
+            を使って動いています。作り方に関して、詳しい情報は以下のページを参照してください。
+          </p>
+          <ul className="my-4">
+            <li className="list-disc list-inside">
+              <a href="https://doc.haramizu.com/nextjs/sitecore-search">
+                Next.js - Sitecore Search
+              </a>
+            </li>
+          </ul>
+          <p>
+            このサイトのソースコードは GitHub
+            で公開しています。ソースコードを参照したい場合は以下のリンクを参照してください。
+          </p>
+          <ul className="mt-4 mb-8">
+            <li className="list-disc list-inside">
+              <a href="https://github.com/haramizu/Next.js-sample/tree/main/examples/sitecore-search-pages">
+                GitHub - haramizu / Next.js-sample - Sitecore Search
+              </a>
+            </li>
+          </ul>
+        </div>
       </main>
     </>
   );

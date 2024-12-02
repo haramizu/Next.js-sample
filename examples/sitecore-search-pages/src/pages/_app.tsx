@@ -9,6 +9,7 @@ import { SEARCH_ENV, SEARCH_CUSTOMER_KEY, SEARCH_API_KEY } from "@/data/search";
 import type { Environment } from "@sitecore-search/data";
 import Header from "@/components/Header";
 import { ThemeProvider } from "next-themes";
+import Footer from "@/components/Footer";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [storageLanguage, setStorageLanguage] = useStorage(
@@ -35,6 +36,7 @@ export default function App({ Component, pageProps }: AppProps) {
         >
           <Header />
           <Component {...pageProps} />
+          <Footer />
         </WidgetsProvider>
       </LanguageContext.Provider>
     </ThemeProvider>

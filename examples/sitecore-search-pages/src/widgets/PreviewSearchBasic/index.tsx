@@ -3,7 +3,6 @@
 import type { ChangeEvent, SyntheticEvent } from "react";
 import { useCallback } from "react";
 import { useRouter } from "next/router";
-
 import type { PreviewSearchInitialState } from "@sitecore-search/react";
 import {
   WidgetDataType,
@@ -98,7 +97,7 @@ export const PreviewSearchBasicComponent = ({ defaultItemsPerPage = 6 }) => {
                               index,
                               sourceId: article.source_id,
                             });
-                            // add redirection or any action
+                            window.location.href = `/detail/${article.id}`;
                           }}
                           className="flex box-border no-underline w-full text-black focus:shadow-md"
                         >

@@ -2,6 +2,7 @@
 
 import type { ActionProp, ItemClickedAction } from "@sitecore-search/react";
 import { ArticleCard } from "@sitecore-search/ui";
+import { useRouter } from "next/router";
 
 type ArticleCardItemCardProps = {
   className?: string;
@@ -28,6 +29,8 @@ const ArticleHorizontalItemCard = ({
   index,
   displayText = false,
 }: ArticleCardItemCardProps) => {
+  const router = useRouter();
+
   return (
     <ArticleCard.Root
       key={article.id}
@@ -50,6 +53,7 @@ const ArticleHorizontalItemCard = ({
               index,
               sourceId: article.source_id,
             });
+            router.push(`/detail/${article.id}`);
           }}
         >
           <span aria-hidden="true" className="absolute inset-0"></span>

@@ -19,7 +19,7 @@ import SearchPagination from "../components/SearchPagination";
 import SortOrder from "../components/SortOrder";
 import Spinner from "../components/Spinner";
 
-type ArticleModel = {
+export type ArticleModel = {
   id: string;
   type?: string;
   title?: string;
