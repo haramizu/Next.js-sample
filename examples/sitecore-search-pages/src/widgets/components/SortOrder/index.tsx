@@ -24,7 +24,7 @@ const SortOrder = ({ options, selected }: SortOrderProps) => {
       </SortSelect.Trigger>
       <SortSelect.Content className="bg-gray-100 dark:bg-gray-700 shadow-[2px_2px_4px_#CFCFCF] z-[100] absolute top-8 focus-within:border-gray-700 min-w-[150px] rounded-md">
         <SortSelect.Viewport className="p-1 z-[50000]">
-          {options.map((option: any) => (
+          {options.map((option: SearchResponseSortChoice) => (
             <SortSelect.Option
               value={option}
               key={option.name}

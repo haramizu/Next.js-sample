@@ -25,11 +25,11 @@ type ArticleModel = {
   title?: string;
   name?: string;
   subtitle?: string;
-  url?: string;
+  url: string;
   description?: string;
   content_text?: string;
   image_url?: string;
-  source_id?: string;
+  source_id: string;
 };
 type ArticleSearchResultsProps = {
   defaultSortType?: SearchResultsStoreState["sortType"];
