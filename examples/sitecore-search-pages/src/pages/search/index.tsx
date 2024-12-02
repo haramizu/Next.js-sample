@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import SearchResults from "@/widgets/SearchResults";
 
 export default function Home() {
   const router = useRouter();
@@ -24,6 +25,11 @@ export default function Home() {
       <main>
         <h1 className="text-3xl m-4">Search Results</h1>
         <p className="text-xl m-4">Keyword: {keyword}</p>
+        <SearchResults
+          key={`${keyword}-search`}
+          rfkId="rfkid_7"
+          defaultKeyphrase={keyword}
+        />
       </main>
     </>
   );
