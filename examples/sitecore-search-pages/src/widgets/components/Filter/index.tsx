@@ -15,7 +15,16 @@ const buildRangeLabel = (
     ? ` > $${min}`
     : `$${min} - $${max}`;
 };
-const buildFacetLabel = (selectedFacet: any) => {
+
+interface SelectedFacet {
+  facetId: string;
+  facetLabel?: string;
+  valueLabel?: string | undefined;
+  min?: number;
+  max?: number;
+}
+
+const buildFacetLabel = (selectedFacet: SelectedFacet) => {
   if ("min" in selectedFacet || "max" in selectedFacet) {
     return `${buildRangeLabel(selectedFacet.min, selectedFacet.max)}`;
   }
