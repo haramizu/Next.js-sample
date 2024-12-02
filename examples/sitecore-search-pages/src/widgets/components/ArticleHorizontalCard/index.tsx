@@ -6,7 +6,16 @@ import { ArticleCard } from "@sitecore-search/ui";
 type ArticleCardItemCardProps = {
   className?: string;
   displayText?: boolean;
-  article: any;
+  article: {
+    id: string;
+    image_url?: string;
+    url: string;
+    name?: string;
+    title?: string;
+    author?: string;
+    description?: string;
+    source_id: string;
+  };
   onItemClick: ActionProp<ItemClickedAction>;
   index: number;
 };
