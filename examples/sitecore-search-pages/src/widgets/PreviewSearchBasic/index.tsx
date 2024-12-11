@@ -70,7 +70,7 @@ export const PreviewSearchBasicComponent = ({ defaultItemsPerPage = 6 }) => {
       </form>
       <PreviewSearch.Content
         ref={widgetRef}
-        className="flex justify-center pt-0 h-[400px] shadow-[2px_5px_5px_5px_rgba(0,0,0,0.3)] transition-opacity	w-[var(--radix-popover-trigger-width)] bg-gray-100 dark:bg-gray-700"
+        className="flex justify-center pt-0 h-[400px] shadow-[2px_5px_5px_5px_rgba(0,0,0,0.3)] transition-opacity	w-[var(--radix-popover-trigger-width)] bg-gray-100 dark:bg-gray-700 z-50"
       >
         <Spinner loading={loading} />
 
