@@ -34,6 +34,17 @@ export default async function handler(
     await page.setViewportSize({ width, height });
     await page.goto(url, { waitUntil: "networkidle" });
 
+    await page.addStyleTag({
+      content: `
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+        * {
+          font-family: 'Noto Sans JP', sans-serif !important;
+        }
+      `,
+    });
+
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
     const screenshotBuffer = await page.screenshot();
     const screenshot = screenshotBuffer.toString('base64');
     await page.close();
