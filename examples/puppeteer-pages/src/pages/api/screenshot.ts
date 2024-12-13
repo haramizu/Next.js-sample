@@ -1,6 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import puppeteer from "puppeteer-core";
+import chromium from "@sparticuz/chromium";
 
 export default async function handler(
   req: NextApiRequest,
@@ -16,10 +17,19 @@ export default async function handler(
   }
 
   try {
-    const browser = await puppeteer.launch({
-      channel: 'chrome',
-      headless: true,
-    });
+    let browser;
+    if (process.env.VERCEL_ENV) {
+      browser = await puppeteer.launch({
+        args: chromium.args,
+        executablePath: await chromium.executablePath(),
+        headless: true,
+      });
+    } else {
+      browser = await puppeteer.launch({
+        channel: 'chrome',
+        headless: true,
+      });
+    }
 
     const page = await browser.newPage();
 
