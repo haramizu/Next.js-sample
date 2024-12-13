@@ -1,11 +1,11 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import puppeteer from "puppeteer";
-
-const allowedDomains = process.env.ALLOWED_DOMAINS?.split(",") || [];
+// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import type { NextApiRequest, NextApiResponse } from "next";
+import puppeteer from "puppeteer-core";
+import chromium from "@sparticuz/chromium";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   const url = req.query.url as string;
   const width = parseInt(req.query.width as string) || 1280;
@@ -16,34 +16,27 @@ export default async function handler(
     return;
   }
 
-  const urlObj = new URL(url);
-  if (!allowedDomains.includes(urlObj.hostname)) {
-    res.status(403).json({ error: "Domain not allowed" });
-    return;
-  }
-
   try {
-    const browser = await puppeteer.launch({
-      args: [
-        "--use-gl=angle",
-        "--use-angle=swiftshader",
-        "--single-process",
-        "--no-sandbox",
-      ],
-      headless: true,
-    });
+    let browser;
+    if (process.env.VERCEL_ENV) {
+      browser = await puppeteer.launch({
+        args: chromium.args,
+        executablePath: await chromium.executablePath(),
+        headless: true,
+      });
+    } else {
+      browser = await puppeteer.launch({
+        channel: 'chrome',
+        headless: true,
+      });
+    }
 
     const page = await browser.newPage();
-    page.setUserAgent(
-      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"
-    );
-    await page.setViewport({ width, height });
-    await page.goto(url);
 
-    await new Promise((resolve) => setTimeout(resolve, 5000));
+    await page.setViewport({ width, height });
+    await page.goto(url, { waitUntil: "networkidle0" });
 
     const screenshot = await page.screenshot({ encoding: "base64" });
-
     await page.close();
     await browser.close();
 
@@ -52,4 +45,5 @@ export default async function handler(
     console.error(error);
     res.status(500).json({ error: "Failed to take screenshot" });
   }
+
 }
